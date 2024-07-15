@@ -1,0 +1,6 @@
+  {% if not request.user.is_authenticated %}
+
+       {% include 'rent4you/list.html' %}
+    {% else %}
+        {% include 'rent4you/list2.html' %}
+    {% endif %}

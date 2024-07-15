@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rent4you</title>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Page_accueil.css'%}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+    {% if not request.user.is_authenticated %}
+
+       {% include 'rent4you/nav.html' %}
+    {% else %}
+        {% include 'rent4you/nav2.html' %}
+    {% endif %}
+
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>trouver, réserver et louer<br> des  véhicules en quelques étapes <span>simples</span></h3>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+       <div class="search-bar">
+           <form action="{% url 'search' %}">
+               <div>
+                   <label>Location:</label>
+                   <input type="text" style=" border-right: 7px solid #ff7800; " name="Lieu" placeholder="Lieu de prise en charge :" >
+
+               </div>
+                <div>
+                   <label>Du:</label>
+                  
+                   <input type="date" name="date1" id="d1"  placeholder="" >
+
+               </div>
+                <div>
+                   <label></label>
+                   
+                   <input type="time" name="time1" placeholder="" style=" border-right: 7px solid #ff7800; " >
+
+               </div>
+               <div>
+                   <label>Au:</label>
+                  
+                   <input type="date" name="date2" id="d2"  placeholder="" >
+
+               </div>
+                <div>
+                   <label></label>
+                   
+                   <input type="time" name="time2" placeholder="" style="   ">
+
+               </div>
+                        <button class="btn" type="submit" style="height: 100%; margin-bottom: 8px;" >Rechercher</button>
+
+
+
+           </form>
+
+
+
+       </div>
+        
+    </div>
+
+</section>
+
+
+
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> <span>comment ça marche {{request.user.first_name}}</span> </h1>
+<h1 class="heading" style=" font-size: 20px;">louer en suivant ces 3 étapes</h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{% static 'image/gps.jpg'%}" alt="">
+            <h3>choisir une location</h3>
+            <p>choisissez un emplacement pour trouver les véhicules les plus proches de vous</p>
+            
+        </div>
+
+        <div class="box">
+            <img src="{% static 'image/calendrier.png'%}" alt="">
+            <h3>entrer la date et le temp </h3>
+            <p>entrer la date et le temp de prise en charge et de retitution</p>
+            
+        </div>
+
+        <div class="box">
+            <img src="{% static 'image/feature-img-3.png' %}" alt="">
+            <h3>réserver votre véhicule</h3>
+            <p>réservez le véhicule que vous souhaitez</p>
+            
+        </div>
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> nos <span>véhicules</span> </h1>
+
+
+    <div class="swiper product-slider">
+                 {% for véhicule in véhicule %}
+        <div class="swiper-wrapper" style=" width:390px">
+
+
+            <div class="swiper-slide box">
+
+                <img src="{{véhicule.imageURL}}" >
+
+                <h3>{{véhicule.marque}} {{véhicule.model}} </h3>
+                <div class="price">{{véhicule.prix_jour}}dz/1jour</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+
+
+
+</div>
+              {% endfor %}
+
+
+        </div>
+
+    </div>
+
+
+    <div class="swiper product-slider">
+        {% for véhicule in véhicule %}
+
+        <div class="swiper-wrapper" style=" width:390px">
+
+                <div class="swiper-slide box">
+                 <img src="{% static 'image/polo.jpg' %}" alt="">
+                <h3>{{véhicule.model}} {{véhicule.marque}}</h3>
+                <div class="price">{{véhicule.prix_jour}}dz/1jour</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+
+
+
+</div>
+            {% endfor %}
+
+           
+
+
+            
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- products section ends -->
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading">  nos<span> Catégorie</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{% static 'image/petite.jpg'%}" alt="">
+            <h3>Petites</h3>
+          
+            
+        </div>
+
+          <div class="box">
+            <img src="{% static 'image/moyennes.jpg'%}" alt="">
+            <h3>Moyennes</h3>
+          
+            
+        </div>
+          <div class="box">
+            <img src="{% static 'image/larges.jpg'%}" alt="">
+            <h3>Larges</h3>
+          
+            
+        </div>
+          <div class="box">
+            <img src="{% static 'image/prmium.jpg'%}" alt="">
+            <h3>Premium</h3>
+          
+            
+        </div>
+          <div class="box">
+            <img src="{% static 'image/monospaces.jpg'%}" alt="">
+            <h3>Monospaces</h3>
+          
+            
+        </div>
+          <div class="box">
+            <img src="{% static 'image/suv.jpg'%}" alt="">
+            <h3>SUV</h3>
+          
+            
+        </div>
+        <div class="box">
+            <img src="{% static 'image/breaks.jpg'%}" alt="">
+            <h3>Breaks</h3>
+
+
+        </div>
+        <div class="box">
+            <img src="{% static 'image/fun.jpg'%}" alt="">
+            <h3>Fun</h3>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- categories section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> <span>Avis des clients</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box" style=" width:405px">
+                <img src="{% static 'image/pic-1.png'%}" alt="">
+                <p>zkkzk zjlllllllll kzllllllllllllllllllllllllllllllll</p>
+                <h3>hadi</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box" style=" width:405px">
+                <img src="{% static 'image/pic-2.png'%}" alt="">
+                <p>zkkzk zjlllllllll kzllllllllllllllllllllllllllllllll</p>
+                <h3>hadi</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box" style=" width:405px">
+                <img src="{% static 'image/pic-3.png'%}" alt="">
+                <p>zkkzk zjlllllllll kzllllllllllllllllllllllllllllllll</p>
+                <h3>hadi</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+           
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+
+            
+          <h3>suivez nous</h3>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contacte info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +213585585 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +54655343</a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> nabil@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> constantine</a>
+        </div>
+
+        <div class="box">
+            <h3>lien rapide</h3>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Voiture </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> partners </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Avis </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> partenariat </a>
+            
+        </div>
+         
+
+        <div class="box" id="partenariat">
+            <h3>partenariat</h3>
+            <p>rejoingnez-nous ici:</p>
+            
+            <input type="submit" value="demande de partenariat" class="btn">
+            <img src="image/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+  
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/Page_accueil.js'%}"></script>
+
+</body>
+</html>

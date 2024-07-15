@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Inscription.css'%}">
+     
+    <!----===== Iconscout CSS ===== -->
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Inscription</title> 
+</head>
+<body>
+    <div class="container">
+        <header>Inscription</header>
+
+        <form action="{% url 'register' %}" method="POST">
+
+                        {% csrf_token %}
+            <div class="form first">
+                <div class="details personal">
+                      <span class="title">Détails personnels</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Prénom</label>
+                            <input type="text" name="first_name" placeholder="entrez votre Prénom" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Nom</label>
+                            <input type="text" name="last_name" placeholder="entrez votre Nom" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date de Naissance</label>
+                            <input type="date" name="birthday" placeholder="entrez votre Date de Naissance " required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Adresse e-mail</label>
+                            <input type="text" name="email" placeholder="entrez votre Adresse e-mail" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Numéro de Portable</label>
+                            <input type="number" name="number" placeholder="entrez votre Numéro de Portable" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mot de Passe</label>
+                           <input type="Password" name="password" placeholder="entrez votre Mot de Passe" required>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+
+                <button class="nextBtn">
+                        <span class="btnText">Suivant</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+            </div>
+
+            <div class="form second">
+                <div class="details address">
+                    <span class="title"></span>
+
+                    <div class="fields">
+                        <button class="sumbit">
+                            <span class="btnText">perndre photo</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                       </div>
+                      
+
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'js/Inscription.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+
+
+
+</head>
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+       <a href="{% url 'accueil' %}" class="logo"><i class="fa-solid fa-car"></i> Rent <span id="for"> <i>4</i> </span>You</a>
+
+    <nav class="navbar">
+
+    </nav>
+
+    <div class="icons">
+        {% if not request.user.is_authenticated %}
+
+                {% else %}
+
+
+
+                {% endif %}
+
+
+                {% if not request.user.is_empty %}
+                        {% else %}
+
+         {% endif %}
+
+                        <div class="fas fa-bell" id="search-btn"></div>
+
+                           <a href="{% url 'historique' user.id %}">  <div class="fas fa-history" id="cart-btn"></div></a>
+                                    <div class="fa-solid fa-gear" id="setting-btn"></div>
+
+                              <div class="fas fa-bars" id="menu-btn"></div>
+
+
+
+
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart">
+        <div class="boxss" style="border-bottom: .2rem solid rgba(0,0,0,.1);">
+      <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="image/polo.jpg" alt="">
+                <div class="content">
+                    <h3>polo</h3>
+                    <span class="price">4.99 dz</span><br>
+                    <span class="date-location">Du: 1/10/2022 <br>au: 2/10/2022</span>
+
+    </div>
+
+
+                </div>
+       <a href="#" class="btn">démarrer cette véhicule</a>
+       </div>
+        </div>
+
+
+    <form action="{% url 'login' %}" class="login-form" method="POST">
+        {% csrf_token %}
+        <h3>login now</h3>
+        <input type="email" name="email" placeholder="your email" class="box" required>
+        <input type="password" name="password" placeholder="your password" class="box" required>
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong>{{ message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close"></button>
+            <span aria-hidden="true">&times</span>
+
+        </div>
+         {% endfor %}
+        <p>forget your password <a href="#">click here</a></p>
+        <p>don't have an account <a href="{% url 'register' %}">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="dropdown">
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img class="nr_li dd_main" src="images/not_1.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Alex commented on<span>Timeline Share</span></p>
+                    <span class="notify_time">10 minutes ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_2.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Ben hur commented on your<span>Timeline Share</span></p>
+                    <span class="notify_time">55 minutes ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_3.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Meryn trant liked your<span>Cover Picture</span></p>
+                    <span class="notify_time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_4.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>John wick commented on your<span>Profile Picture</span></p>
+                    <span class="notify_time">6 hours ago</span>
+                </div>
+            </div>
+            </div>
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- **************************************************************************************************************** -->
+    <div class="setting">
+    <div class="dd_menu">
+                        <div class="dd_left">
+                            <ul>
+                                <li ><h2><i class="fa-solid fa-user"></i></i></h2></li>
+
+                                <li><h2><i class="fa-solid fa-triangle-exclamation"></i></h2></li>
+
+
+                                <li><h2><i class="fas fa-sign-out-alt"></i></h2></li>
+                            </ul>
+                        </div>
+                        <div class="dd_right">
+                            <ul>
+                                <li  style=" border-bottom: .2rem solid rgba(0,0,0,.1);"><h2><a href="{% url 'profile' user.id %}">profil</a></h2></li>
+                                <li style=" "><h2>signaler un probléme</h2></li>
+                    <hr  style="height: .2em; width: 100%; background: rgba(0,0,0,.1);  margin-left: 0px; ">
+                                <li><h2><a href="{% url 'logout' %}"> déconnecter </a></h2></li>
+                                  <hr  style="height: .2em; width: 100%; background: rgba(0,0,0,.1); ">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    <!-- **************************************************************************************************************** -->
+
+
+</header>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!-- header section ends -->
+
+
+
+<!-- custom js file link  -->
+<!-- <script src="js/offre.js"></script> -->
+
+    <script src="{% static 'js/Page_accueil.js'%}"></script>
+
+<script src="{% static 'js/navbar.js' %}"></script>
+
+
+</body>
+</html>

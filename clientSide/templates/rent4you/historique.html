@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Shopping Cart</title>
+
+	<link rel="stylesheet" type="text/css" href="historique.css">
+	  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/historique.css'%}">
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<header>
+	    {% if not request.user.is_authenticated %}
+
+       {% include 'rent4you/navbar.html' %}
+    {% else %}
+        {% include 'rent4you/navbar2.html' %}
+    {% endif %}
+
+
+</header>
+
+
+<div class="container">
+
+	<h1>Shopping Cart</h1>
+
+	<div class="cart">
+
+		<div class="products">
+{% for query_set in query_set %}
+			<div class="product">
+
+				<img src="{{véhicule.imageURL}}">
+
+				<div class="product-info">
+
+					<h3 class="product-name">{{query_set.id_véhicule.marque}} {{query_set.id_véhicule.model}}</h3>
+
+					<h4 class="product-price"> De:{{query_set.date_début}}</h4>
+
+					<h4 class="product-offer">au:{{query_set.date_fin}}</h4>
+
+					<p class="product-quantity">Etat: Stop
+
+					<p class="product-remove">
+
+						<i class="fa fa-trash" aria-hidden="true"></i>
+
+						<span class="remove">Suprimer</span>
+
+					</p>
+
+				</div>
+
+			</div>
+
+		
+		{% endfor %}
+
+		</div>
+
+		<div class="cart-total">
+
+			<p>
+
+			<select>
+				{% for query_set in query_set %}
+				<option>{{query_set.id_véhicule.marque}} {{query_set.id_véhicule.model}}</option>
+{% endfor %}
+			</select>
+
+			</p>
+
+
+			<a href="{% url 'face_recognition' %}">Démarrer</a>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+</body>
+
+
+</html>

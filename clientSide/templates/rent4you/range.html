@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Range Slider | CodingNepal</title>
+    <link rel="stylesheet" href="range.css">
+       {% load static %}
+              <link rel="stylesheet" href="{% static 'css/range.css' %}">
+
+  </head>
+  <body>
+    <div class="range">
+        <div class="sliderValue">
+          <span class="spann"><b>100</b></span>
+        </div>
+<div class="field">
+          <div class="value left">
+1000</div>
+<input class="inputtt" id="price" type="range" min="1000" max="20000" value="20000" steps="500" onchange="getCar()"   >
+          <div class="value right">
+200000</div>
+</div>
+</div>
+
+    <script src="{% static 'js/range.js'%}"></script>
+
+
+  </body>
+
+</html>

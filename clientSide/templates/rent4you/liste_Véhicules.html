@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rent4you_list</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/liste_Véhicules.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="#" class="logo"><i class="fa-solid fa-car"></i> Rent <span id="for"> <i>4</i> </span>You</a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            
+            <a href="#Voiture">Voiture</a>
+            <a href="#partners">partners</a>
+            <a href="#avis">Avis</a>
+            <a href="#partenariat">partenariat</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-history" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="shopping-cart">
+          <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/polo.jpg" alt="">
+            <div class="content">
+                <h3>polo</h3>
+                <span class="price">4.99 dz</span><br>
+                <span class="date-location">Du: 1/10/2022 <br>au: 2/10/2022</span>
+
+            </div>
+
+
+        </div>
+        <div class="total"> total : $19.69/- </div>
+        <a href="#" class="btn">checkout</a>
+    </div>
+
+    <form action="" class="login-form">
+        <h3>login now</h3>
+        <input type="email" placeholder="your email" class="box">
+        <input type="password" placeholder="your password" class="box">
+        <p>forget your password <a href="#">click here</a></p>
+        <p>don't have an account <a href="#">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+    <!-- ********************************** -->
+    <div class="wrapper">
+    <div class="notification_wrap">
+        <div class="notification_icon">
+            <i class="fas fa-bell"></i>
+        </div>
+        <div class="dropdown">
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_1.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Alex commented on<span>Timeline Share</span></p>
+                    <span class="notify_time">10 minutes ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_2.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Ben hur commented on your<span>Timeline Share</span></p>
+                    <span class="notify_time">55 minutes ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_3.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>Meryn trant liked your<span>Cover Picture</span></p>
+                    <span class="notify_time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="notify_item">
+                <div class="notify_img">
+                    <img src="images/not_4.png" alt="profile_pic" style="width: 50px">
+                </div>
+                <div class="notify_info">
+                    <p>John wick commented on your<span>Profile Picture</span></p>
+                    <span class="notify_time">6 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ******************************** -->
+   
+
+                    
+                    <div class="dd_menu">
+                        <div class="dd_left">
+                            <ul>
+                                <li><i class="fa-solid fa-user"></i></i></li>
+                                <li><i class="fa-solid fa-triangle-exclamation"></i></li>
+                                <br>
+                                <li><i class="fas fa-sign-out-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="dd_right">
+                            <ul>
+                                <li>profil</li>
+                                <li>signaler un probléme</li>
+                    
+                                <li>déconnecter</li>
+                            </ul>
+                        </div>
+                    </div>
+              
+              
+
+
+</header>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!-- header section ends -->
+<!-- list starts -->
+<div class="list-container">
+    <div class="left-col">
+        <p>200+ véhicules</p>
+        <h1>a constantine</h1>
+        <br>
+        <div class="car">
+            <div class="car-img">
+                <img src="image/polo.jpg">
+            </div>
+            <div class="car-info">
+               <p>Polo</p>
+               <ul>
+                   <li><i class="fas fa-sliders-v-square"></i>Manuelle/Automatique</li>
+                   <li><i class="fa-solid fa-person-seat"></i>4 sièges</li>
+                   <li><i class="fa-solid fa-air-conditioner"></i>climatisation</li>
+
+
+
+
+               </ul>
+               <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="car-price">
+                <p>Prix pour 3 jours :</p>
+                <h4>10000dz</h4>
+                <input type="submit" value="voir L'offre" class="btn">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="car">
+        <div class="car-img">
+            <img src="image/polo.jpg">
+        </div>
+        <div class="car-info">
+           <p>Polo</p>
+           <ul>
+               <li><i class="fas fa-sliders-v-square"></i>Manuelle/Automatique</li>
+               <li><i class="fa-solid fa-person-seat"></i>4 sièges</li>
+               <li><i class="fa-solid fa-air-conditioner"></i>climatisation</li>
+
+
+
+
+           </ul>
+           <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="car-price">
+            <p>Prix pour 3 jours :</p>
+            <h4>10000dz</h4>
+            <input type="submit" value="voir L'offre" class="btn">
+            
+        </div>
+    </div>
+
+</div>
+<div class="car">
+    <div class="car-img">
+        <img src="image/polo.jpg">
+    </div>
+    <div class="car-info">
+       <p>Polo</p>
+       <ul>
+           <li><i class="fas fa-sliders-v-square"></i>Manuelle/Automatique</li>
+           <li><i class="fa-solid fa-person-seat"></i>4 sièges</li>
+           <li><i class="fa-solid fa-air-conditioner"></i>climatisation</li>
+
+
+
+
+       </ul>
+       <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+    </div>
+    <div class="car-price">
+        <p>Prix pour 3 jours :</p>
+        <h4>10000dz</h4>
+        <input type="submit" value="voir L'offre" class="btn">
+
+    </div>
+</div>
+
+</div>
+<div class="car">
+    <div class="car-img">
+        <img src="image/polo.jpg">
+    </div>
+    <div class="car-info">
+      <h1>volkswagen polo</h1>
+      <br>
+      <br>
+
+       <ul>
+           <li><i class="fas fa-sliders-v-square"></i>Manuelle/Automatique</li>
+           <li><i class="fa-solid fa-person-seat"></i>4 sièges</li>
+           <li><i class="fa-solid fa-air-conditioner"></i>climatisation</li>
+
+
+
+
+       </ul>
+      
+
+  <!--      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+    </div> -->
+  
+    <div class="car-price">
+        <p>Prix pour 3 jours :</p>
+        <h1>10000dz</h1>
+        <input type="submit" value="voir L'offre" class="btn">
+
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="right-col">
+    <div class="sidebar">
+        <h2>sélectionner un filtre</h2>
+        <h3>property type </h3>
+        <div class="filter">
+            <input type="checkbox" name=""><p>car</p><span>(0)</span>
+        </div>
+        <div class="filter">
+            <input type="checkbox" name=""><p>car</p><span>(0)</span>
+        </div>
+        <div class="filter">
+            <input type="checkbox" name=""><p>car</p><span>(0)</span>
+        </div>
+        <div class="filter">
+            <input type="checkbox" name=""><p>car</p><span>(0)</span>
+        </div>
+        <div class="filter">
+            <input type="checkbox" name=""><p>car</p><span>(0)</span>
+
+        </div>
+        <h3>property type </h3>
+<div class="filter">
+<input type="checkbox" name=""><p>car</p><span>(0)</span>
+    </div>
+    <div class="filter">
+<input type="checkbox" name=""><p>car</p><span>(0)</span>
+    </div>
+    <div class="filter">
+<input type="checkbox" name=""><p>car</p><span>(0)</span>
+    </div>
+    <div class="filter">
+<input type="checkbox" name=""><p>car</p><span>(0)</span>
+    </div>
+    <div class="filter">
+<input type="checkbox" name=""><p>car</p><span>(0)</span>
+    </div>
+
+
+    </div>
+</div>
+
+
+</div>
+<!-- list end -->
+
+<!-- custom js file link  -->
+<script src="js/Page_D'accueil.js"></script>
+<script src="js/liste_Véhicules.js"></script>
+</body>
+</html>

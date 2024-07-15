@@ -1,0 +1,50 @@
+
+
+
+  {% load static %}
+
+
+
+
+          {% for véhicule in query_set %}
+        <div class="slider-car">
+            <div class="company">
+              <img src="{% static 'image/company.jpg'%}">
+              <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+    </div> 
+          </div>
+          <div class="img-car">
+              <img src="{{véhicule.imageURL}}">
+              
+          </div>
+                      <h2>{{véhicule.marque}} {{véhicule.model}}</h2>
+                      <br>
+              <p  class="car-infos">{{véhicule.description}}</p>
+              <div class="car-price">
+        <p>Prix pour <p id="output"> </p> jours :</p>
+                <h1 class="price">{{véhicule.prix_jour}}dz</h1>
+                <div class="offre">
+                    <a href="{% url 'offre' véhicule.id %}">voir L'offre</a>
+
+
+                </div>
+
+        
+
+    </div>
+     </div>
+        {% endfor %}
+      
+
+     
+   
+
+
+
+
+
